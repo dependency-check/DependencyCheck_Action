@@ -11,7 +11,7 @@ inputs:
         required: true  
     format:
         required: true
-    others:
+    args:
         required: false
 runs:
     using: 'docker'
@@ -27,4 +27,4 @@ runs:
         - '--out'
         -  '/github/workspace/reports'
         - '--noupdate'
-        - '${{ inputs.others }}'
+        - '${{ inputs.args }}'
