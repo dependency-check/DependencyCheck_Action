@@ -32,7 +32,9 @@ jobs:
           project: 'test'
           path: '.'
           format: 'HTML'    
-          others: ''
+          args: >
+            --failOnCVSS 7
+            --enableRetired
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
@@ -40,7 +42,7 @@ jobs:
            path: ${{github.workspace}}/reports
 ```
 
-*others* allows to pass random flags and parameters to the binary.
+*args* allows to pass established flags and parameters to the binary. Check the [arguments page](https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html) for valid options
 
 # How Do I Use It?
 We recommend adding the above example into your .github/workflows directory, using a name of your choice, in this example main.yml.

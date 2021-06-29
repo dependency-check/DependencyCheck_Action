@@ -11,11 +11,11 @@ inputs:
         required: true  
     format:
         required: true
-    others:
+    args:
         required: false
 runs:
     using: 'docker'
-    image: 'docker://owasp/dependency-check-action:latest'
+    image: 'Dockerfile'
     args:
 
         - '--project'
@@ -27,4 +27,4 @@ runs:
         - '--out'
         -  '/github/workspace/reports'
         - '--noupdate'
-        - '${{ inputs.others }}'
+        - ${{ inputs.args }}
